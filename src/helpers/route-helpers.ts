@@ -1,6 +1,6 @@
-const log = require('./../lib/log').app;
+import { app as log } from '../lib/log';
 
-exports.JsonApi = (Function, Location, ReturnStack = false) => {
+export function JsonApi (Function, Location, ReturnStack: boolean): Promise<any> {
     const responseJson = {
         Success: false,
         Data: null

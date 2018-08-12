@@ -1,7 +1,7 @@
-const path      = require('path');
-const express   = require('express');
+import * as path from 'path';
+import * as express from 'express';
 const AppRoutes = express.Router();
 
 AppRoutes.use(express.static(path.join(__dirname, '../../dist/mona2')));
 
-module.exports = AppRoutes;
+export default AppRoutes;
