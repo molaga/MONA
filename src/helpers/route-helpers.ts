@@ -1,12 +1,12 @@
 import { app as log } from '../lib/log';
 
-export function JsonApi (Function, Location, ReturnStack: boolean): Promise<any> {
+export function JsonApi (Function, Location, ReturnStack?: boolean): Promise<any> {
     const responseJson = {
         Success: false,
         Data: null
     };
 
-    return async function (Request, Response) {
+    return <any>(async function (Request, Response) {
         try {
             responseJson.Data = (await Function(Request, Response));
             responseJson.Success = true;
@@ -17,5 +17,5 @@ export function JsonApi (Function, Location, ReturnStack: boolean): Promise<any>
         }
 
         return Response.json(responseJson);
-    };
-};
+    });
+}
